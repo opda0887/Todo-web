@@ -2,15 +2,29 @@
 <html>
     <head>
         <title>To Do List</title>
+
+        <!-- Roboto -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
         <link rel="stylesheet" href="style/general.css">
         <link rel="stylesheet" href="style/mainPage.css">
+        <link rel="stylesheet" href="style/text.css">
     </head>
     <body>
+        
+        <nav class="topic">
+            <p class="topic-text">
+                The Todos
+            </p>
+        </nav>
+
         <div class="main">
-            <div>
-                <input id="todo-title" type="text" placeholder="Your task">
+            <div class="add-box">
+                <input class="task-input-box" id="todo-title" type="text" placeholder="Your task">
                 <input id="todo-date" type="date">
-                <button onclick="addTodo()">
+                <button class="add-todo" onclick="addTodo()">
                     Add todo
                 </button>
             </div>

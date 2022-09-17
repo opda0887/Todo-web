@@ -1,8 +1,10 @@
+let todoRender = document.getElementById('todo-box');
 // if localstorage has an array, then use it
 // else use default setting
 let todo;
 
 // retrive localstorage
+// 把 todos 從字串轉為串列
 const saveTodos = JSON.parse(localStorage.getItem('todos'));
  // check if it's an array
  if (Array.isArray(saveTodos)) {
@@ -47,7 +49,6 @@ function creatTodo(outputTask, outputDate) {
 function removeTodo(targetId) {
     todo = todo.filter(function (value) {
         if (value.id.toString() === targetId) {
-            console.log('false');
             return false;
         }else {
             return true;
@@ -63,7 +64,6 @@ function saveTodo() {
 }
 
 function addTodo() {
-    let todoRender = document.getElementById('todo-box');
     todoRender.innerHTML = ' ';
                 
     let task = document.getElementById('todo-title');
@@ -77,7 +77,6 @@ function addTodo() {
 }
 
 function render() {
-    let todoRender = document.getElementById('todo-box');
     todoRender.innerHTML = ' ';
                 
     todo.forEach(function (todo) {

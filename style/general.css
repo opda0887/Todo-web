@@ -1,3 +1,9 @@
+html {
+    min-height: 100%;
+}
+
 body {
     position: relative;
+    background: no-repeat url("/img/White_Background_generated.jpg");
+    background-size: cover;
 }

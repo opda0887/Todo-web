@@ -1,7 +1,37 @@
+.topic {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Roboto;
+    font-weight: bold;
+    font-size: 100px;
+}
+
 .main {
+    zoom: 1.5;
     display: flex;
     align-items: center;
     justify-content: center;
     display: grid;
     grid-template-rows: 70px 1fr;
+}
+
+.add-box {
+    display: flex;
+    align-items: top;
+}
+
+.task-input-box {
+    height: 20px;
+    margin-right: 5px;
+}
+
+.add-todo {
+    background-color: rgb(25, 84, 211);
+    color: white;
+    border: none;
+    border-radius: 9999px;
+    padding: 5px 8px;
+    margin-left: 5px;
+    cursor: pointer;
 }
