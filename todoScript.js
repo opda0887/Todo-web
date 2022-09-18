@@ -12,7 +12,7 @@ if (Array.isArray(saveTodos)) {
 }else {
     todo = [{
         title: 'Find cellphone',
-        dueDate: '2022-09/-16',
+        dueDate: '2022-09-16',
         isDone: false,
         id: 'id1'
     }, {
@@ -64,9 +64,24 @@ function saveTodo() {
 }
 
 function addTodo() {
-               
+
     let task = document.getElementById('todo-title')
     let outputTask = task.value
+
+    // 檢查 text-box 內是否為空的
+    // 是的話，跳出警示
+    // \s is the regex for "whitespace", and g is the "global" flag, meaning match ALL \s
+    /* '+' 的差異：
+        var str = '  A B  C   D EF ';
+        console.log(str.replace(/\s/g, '#'));  // ##A#B##C###D#EF#
+        console.log(str.replace(/\s+/g, '#')); // #A#B#C#D#EF#  
+    */
+    let checkStr = outputTask.replace(/\s+/g, '');
+    if (checkStr === '') {
+        alert("任務內容不能為空白\nYour task can't be none.")
+        return 0
+    }
+
     let date = document.getElementById('todo-date')
     let outputDate = date.value
 
@@ -136,21 +151,16 @@ function checkFinish(event) {
         if (value.id === checkboxId) {
             if (checkboxChange) {
                 value.isDone = true
-                console.log("It is true")
             }else {
                 value.isDone = false
-                console.log("It is false")
             }
         }
-    })
-
-    console.log(checkboxChange)
-                
+    })         
 }
 
-/* 按照日期排序 */
+/* 按照日期排序(a前b後：日期由先至後) */
 function sortWithDate() {
-    console.log("sort")
+
     todo.sort(function(a,b){
         return a.dueDate.localeCompare(b.dueDate);
     })
@@ -159,15 +169,3 @@ function sortWithDate() {
 
     render()
 }
-
-/* const activities = [
-    { title: 'Hiking', date: new Date('2019-06-28') },
-    { title: 'Shopping', date: new Date('2019-06-10') },
-    { title: 'Trekking', date: new Date('2019-06-22') },
-    { title: 'Trekking'}
-  ]
-
-sortWithDate(activities)
-
-console.log(activities)
-*/ 
