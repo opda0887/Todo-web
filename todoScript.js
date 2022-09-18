@@ -7,7 +7,7 @@ let todo
 // 把 todos 從字串轉為串列
 const saveTodos = JSON.parse(localStorage.getItem('todos'))
  // check if it's an array
- if (Array.isArray(saveTodos)) {
+if (Array.isArray(saveTodos)) {
     todo = saveTodos
 }else {
     todo = [{
@@ -154,6 +154,9 @@ function sortWithDate() {
     todo.sort(function(a,b){
         return a.dueDate.localeCompare(b.dueDate);
     })
+
+    saveTodo()
+
     render()
 }
 
