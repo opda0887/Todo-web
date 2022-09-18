@@ -68,30 +68,20 @@ function addTodo() {
     let task = document.getElementById('todo-title')
     let outputTask = task.value
 
-    // 檢查 text-box 內是否為空的
-    // 是的話，跳出警示
-    // \s is the regex for "whitespace", and g is the "global" flag, meaning match ALL \s
-    /* '+' 的差異：
-        var str = '  A B  C   D EF ';
-        console.log(str.replace(/\s/g, '#'));  // ##A#B##C###D#EF#
-        console.log(str.replace(/\s+/g, '#')); // #A#B#C#D#EF#  
-    */
-    let checkStr = outputTask.replace(/\s+/g, '');
-    if (checkStr === '') {
+    if (checkTask(outputTask) !== 0) {
+        let date = document.getElementById('todo-date')
+        let outputDate = date.value
+
+        creatTodo(outputTask, outputDate)
+
+        render()
+
+        /* 重製input */
+        document.getElementById('todo-title').value = ""
+        document.getElementById('todo-date').value = ""
+    } else {
         alert("任務內容不能為空白\nYour task can't be none.")
-        return 0
     }
-
-    let date = document.getElementById('todo-date')
-    let outputDate = date.value
-
-    creatTodo(outputTask, outputDate)
-
-    render()
-
-    /* 重製input */
-    document.getElementById('todo-title').value = ""
-    document.getElementById('todo-date').value = ""
 }
 
 function render() {
@@ -168,4 +158,21 @@ function sortWithDate() {
     saveTodo()
 
     render()
+}
+
+// 檢查 text-box 內是否為空的
+// 是的話，跳出警示
+function checkTask(outputTask) {
+    // \s is the regex for "whitespace", and g is the "global" flag, meaning match ALL \s
+    /* '+' 的差異：
+        var str = '  A B  C   D EF ';
+        console.log(str.replace(/\s/g, '#'));  // ##A#B##C###D#EF#
+        console.log(str.replace(/\s+/g, '#')); // #A#B#C#D#EF#  
+    */
+    let checkStr = outputTask.replace(/\s+/g, '');
+    if (checkStr === '') {
+        return 0
+    }else {
+        return 1
+    }
 }
