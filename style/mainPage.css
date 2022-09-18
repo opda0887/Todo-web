@@ -13,7 +13,7 @@
     align-items: center;
     justify-content: center;
     display: grid;
-    grid-template-rows: 70px 1fr;
+    grid-template-rows: 50px 20px 1fr;
 }
 
 .add-box {

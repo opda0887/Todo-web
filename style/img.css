@@ -1,0 +1,6 @@
+.sortDate {
+    width: 20px;
+}
+.sortDate:hover {
+    cursor: pointer;
+}

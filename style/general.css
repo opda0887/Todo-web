@@ -6,4 +6,5 @@ body {
     position: relative;
     background: no-repeat url("https://i.imgur.com/30U1T0F.jpg");
     background-size: cover;
+    padding-bottom: 30px;
 }

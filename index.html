@@ -11,14 +11,16 @@
         <link rel="stylesheet" href="style/general.css">
         <link rel="stylesheet" href="style/mainPage.css">
         <link rel="stylesheet" href="style/text.css">
+        <link rel="stylesheet" href="style/img.css">
+        <link rel="stylesheet" href="style/nav.css">
     </head>
     <body>
         
-        <nav class="topic">
+        <div class="topic">
             <p class="topic-text">
                 The Todos
             </p>
-        </nav>
+        </div>
 
         <div class="main">
             <div class="add-box">
@@ -29,7 +31,15 @@
                 </button>
             </div>
             
-    
+            <nav class="tool-box" >
+                <div class="sort-box">
+                    <img class="sortDate" src="icon/sort-down.png" onclick="sortWithDate()">
+                    <div class="sortdateText">
+                        Sort with Date
+                    </div>
+                </div>
+            </nav>
+
             <div id="todo-box">
     
             </div>

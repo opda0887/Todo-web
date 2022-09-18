@@ -1,146 +1,170 @@
-let todoRender = document.getElementById('todo-box');
+let todoRender = document.getElementById('todo-box')
 // if localstorage has an array, then use it
 // else use default setting
-let todo;
+let todo
 
 // retrive localstorage
 // 把 todos 從字串轉為串列
-const saveTodos = JSON.parse(localStorage.getItem('todos'));
+const saveTodos = JSON.parse(localStorage.getItem('todos'))
  // check if it's an array
  if (Array.isArray(saveTodos)) {
-    todo = saveTodos;
+    todo = saveTodos
 }else {
     todo = [{
         title: 'Find cellphone',
-        dueDate: '2022/09/26',
+        dueDate: '2022-09/-16',
         isDone: false,
         id: 'id1'
     }, {
         title: 'Open window',
-        dueDate: '2022/09/15',
+        dueDate: '2022-09-15',
         isDone: false,
         id: 'id2'
     }, {
         title: 'Send message',
-        dueDate: '2022/09/09',
+        dueDate: '2022-09-09',
         isDone: false,
         id: 'id3'
-    }];
+    }]
 }
 
 
-render();
+render()
 
 // Creat a todo
 function creatTodo(outputTask, outputDate) {
-    let id = new Date().getTime();
+    let id = new Date().getTime()
 
     todo.push({
         title: outputTask,
         dueDate: outputDate,
         isDone: false,
         id: id
-    });
+    })
 
-    saveTodo();
+    saveTodo()
 }
 
 // Remove a todo
 function removeTodo(targetId) {
     todo = todo.filter(function (value) {
         if (value.id.toString() === targetId) {
-            return false;
+            return false
         }else {
-            return true;
+            return true
         }
-    });
+    })
 
-    saveTodo();
+    saveTodo()
 } 
 
 // 保存變更後的todo
 function saveTodo() {
-    localStorage.setItem('todos', JSON.stringify(todo));
+    localStorage.setItem('todos', JSON.stringify(todo))
 }
 
 function addTodo() {
-    todoRender.innerHTML = ' ';
-                
-    let task = document.getElementById('todo-title');
-    let outputTask = task.value;
-    let date = document.getElementById('todo-date');
-    let outputDate = date.value;
+               
+    let task = document.getElementById('todo-title')
+    let outputTask = task.value
+    let date = document.getElementById('todo-date')
+    let outputDate = date.value
 
-    creatTodo(outputTask, outputDate);
+    creatTodo(outputTask, outputDate)
 
-    render();
+    render()
+
+    /* 重製input */
+    document.getElementById('todo-title').value = ""
+    document.getElementById('todo-date').value = ""
 }
 
 function render() {
-    todoRender.innerHTML = ' ';
+    todoRender.innerHTML = ' '
                 
     todo.forEach(function (todo) {
         // set div
-        let eachTodo = document.createElement('div');
-        eachTodo.style.cssText = 'margin-bottom: 5px; position: relative';
+        let eachTodo = document.createElement('div')
+        eachTodo.style.cssText = 'margin-bottom: 5px; position: relative;'
                     
         // create checkbox
         let checkbox = document.createElement('input')
-        checkbox.setAttribute('type', 'checkbox');
-        checkbox.id = todo.id;
-        checkbox.onchange = checkFinish;
-        eachTodo.appendChild(checkbox);                    
+        checkbox.setAttribute('type', 'checkbox')
+        checkbox.id = todo.id
+        checkbox.onchange = checkFinish
+        eachTodo.appendChild(checkbox)                    
                     
         // create todo content
-        let element = document.createElement('div');
+        let element = document.createElement('div')
         if (todo.dueDate == '') {
-            element.innerText = todo.title;
+            element.innerText = todo.title
         }else {
-            element.innerText = todo.title + '\xa0\xa0\"' + todo.dueDate + '\"';
+            element.innerText = todo.title + '\xa0\xa0\"' + todo.dueDate + '\"'
         }
-        element.style.cssText = 'display: inline-block; font-weight: bold'
-        eachTodo.appendChild(element);
+        element.style.cssText = 'display: inline-block; font-weight: bold;'
+        eachTodo.appendChild(element)
 
         // create delete button
-        let button = document.createElement('button');
-        button.innerText = 'Delete';
+        let button = document.createElement('button')
+        button.innerText = 'Delete'
 
-        button.style.cssText = 'position: absolute; right: 0; margin-left: 16px; background-color: red; color: white; border: 0; border-radius: 9999px; padding: 3px 8px; cursor: pointer;';
+        button.style.cssText = 'position: absolute; right: 0; margin-left: 16px; background-color: red; color: white; border: 0; border-radius: 9999px; padding: 3px 8px; cursor: pointer;'
 
-        button.id = todo.id;
-        button.onclick = deleteTodo;
-        eachTodo.appendChild(button);
+        button.id = todo.id
+        button.onclick = deleteTodo
+        eachTodo.appendChild(button)
 
         // Final output
-        todoRender.appendChild(eachTodo);
+        todoRender.appendChild(eachTodo)
     })
 }
 
 function deleteTodo(event) {
-    let buttonTag = event.target;
-    let buttonId = buttonTag.id;
+    let buttonTag = event.target
+    let buttonId = buttonTag.id
     removeTodo(buttonId)
 
-    render();
+    render()
 }
 
 function checkFinish(event) {
-    let checkbox = event.target;
-    let checkboxId = checkbox.id;
-    let checkboxChange = checkbox.checked;
+    let checkbox = event.target
+    let checkboxId = checkbox.id
+    let checkboxChange = checkbox.checked
 
     todo.forEach(function (value) {
         if (value.id === checkboxId) {
             if (checkboxChange) {
-                value.isDone = true;
+                value.isDone = true
                 console.log("It is true")
             }else {
-                value.isDone = false;
+                value.isDone = false
                 console.log("It is false")
             }
         }
-    });
+    })
 
-    console.log(checkboxChange);
+    console.log(checkboxChange)
                 
 }
+
+/* 按照日期排序 */
+function sortWithDate() {
+    console.log("sort")
+    todo.sort(function(a,b){
+        return a.dueDate.localeCompare(b.dueDate);
+    })
+    render()
+}
+
+/* const activities = [
+    { title: 'Hiking', date: new Date('2019-06-28') },
+    { title: 'Shopping', date: new Date('2019-06-10') },
+    { title: 'Trekking', date: new Date('2019-06-22') },
+    { title: 'Trekking'}
+  ]
+
+sortWithDate(activities)
+
+console.log(activities)
+*/ 

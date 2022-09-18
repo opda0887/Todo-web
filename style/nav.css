@@ -1,0 +1,9 @@
+.tool-box {
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.sort-box {
+    display: flex;
+    width: 20px;
+}
