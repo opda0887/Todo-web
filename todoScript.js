@@ -143,7 +143,7 @@ function checkFinish(event) {
     let checkboxChange = checkbox.checked
 
     todo.forEach(function (value) {
-        if (value.id === checkboxId) {
+        if (value.id.toString() === checkboxId) {
             if (checkboxChange) {
                 value.isDone = true
             }else {rue
