@@ -107,15 +107,22 @@ function render() {
                     
         // create todo content
         let element = document.createElement('div')
+
         if (todo.dueDate == '') {
             element.innerText = todo.title
         }else {
-            element.innerText = todo.title + '\xa0\xa0\"' + todo.dueDate + '\"'
+            element.innerText = todo.title + '\xa0\xa0\xa0' + '『' + todo.dueDate + '』'
         }
-        element.style.cssText = 'display: inline-block; font-weight: bold;'
+
+        if (todo.isDone) {
+            element.style.cssText = 'display: inline-block; font-weight: bold; color: rgb(134, 0, 179)'
+        }else {
+            element.style.cssText = 'display: inline-block; font-weight: bold;'
+        }
+
         eachTodo.appendChild(element)
 
-        // create delete button
+        // create delete button or not
         if (todo.isDone) {
             let button = document.createElement('button')
             button.innerText = 'Delete'
