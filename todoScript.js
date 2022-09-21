@@ -101,6 +101,7 @@ function render() {
             checkbox.checked = true
             eachTodo.appendChild(checkbox)
         }else {
+            checkbox.checked = false
             eachTodo.appendChild(checkbox)
         }                
                     
@@ -115,14 +116,16 @@ function render() {
         eachTodo.appendChild(element)
 
         // create delete button
-        let button = document.createElement('button')
-        button.innerText = 'Delete'
+        if (todo.isDone) {
+            let button = document.createElement('button')
+            button.innerText = 'Delete'
 
-        button.style.cssText = 'position: absolute; right: 0; margin-left: 16px; background-color: red; color: white; border: 0; border-radius: 9999px; padding: 3px 8px; cursor: pointer;'
+            button.style.cssText = 'position: absolute; right: 0; margin-left: 16px; background-color: red; color: white; border: 0; border-radius: 9999px; padding: 3px 8px; cursor: pointer;'
 
-        button.id = todo.id
-        button.onclick = deleteTodo
-        eachTodo.appendChild(button)
+            button.id = todo.id
+            button.onclick = deleteTodo
+            eachTodo.appendChild(button)
+        }
 
         // Final output
         todoRender.appendChild(eachTodo)
@@ -146,13 +149,15 @@ function checkFinish(event) {
         if (value.id.toString() === checkboxId) {
             if (checkboxChange) {
                 value.isDone = true
-            }else {rue
+            }else {
                 value.isDone = false
             }
         }
     })
     
     saveTodo()
+
+    render()
 }
 
 /* 按照日期排序(a前b後：日期由先至後) */
