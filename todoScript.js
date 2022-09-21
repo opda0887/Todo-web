@@ -111,7 +111,7 @@ function render() {
         if (todo.dueDate == '') {
             element.innerText = todo.title
         }else {
-            element.innerText = todo.title + '\xa0\xa0\xa0' + '『' + todo.dueDate + '』'
+            element.innerText = todo.title + '\xa0\xa0\xa0' + '\"' + todo.dueDate + '\"'
         }
 
         if (todo.isDone) {
