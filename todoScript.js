@@ -97,7 +97,12 @@ function render() {
         checkbox.setAttribute('type', 'checkbox')
         checkbox.id = todo.id
         checkbox.onchange = checkFinish
-        eachTodo.appendChild(checkbox)                    
+        if (todo.isDone) {
+            checkbox.checked = true
+            eachTodo.appendChild(checkbox)
+        }else {
+            eachTodo.appendChild(checkbox)
+        }                
                     
         // create todo content
         let element = document.createElement('div')
@@ -141,11 +146,13 @@ function checkFinish(event) {
         if (value.id === checkboxId) {
             if (checkboxChange) {
                 value.isDone = true
-            }else {
+            }else {rue
                 value.isDone = false
             }
         }
-    })         
+    })
+    
+    saveTodo()
 }
 
 /* 按照日期排序(a前b後：日期由先至後) */
