@@ -80,7 +80,7 @@ function addTodo() {
         document.getElementById('todo-title').value = ""
         document.getElementById('todo-date').value = ""
     } else {
-        alert("任務內容不能為空白\nYour task can't be none.")
+        alert("任務內容不能為空白\nYour task title can't be none.")
     }
 }
 
