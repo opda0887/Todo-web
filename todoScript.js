@@ -58,6 +58,20 @@ function removeTodo(targetId) {
     saveTodo()
 } 
 
+// Rebuild a todo
+function rebuildTodo(targetId) {
+    todo = todo.filter(function (value) {
+        if (value.id.toString() === targetId) {
+            document.getElementById('todo-title').value = value.title
+            return false
+        }else {
+            return true
+        }
+    })
+
+    saveTodo()
+}
+
 // 保存變更後的todo
 function saveTodo() {
     localStorage.setItem('todos', JSON.stringify(todo))
@@ -132,6 +146,15 @@ function render() {
             button.id = todo.id
             button.onclick = deleteTodo
             eachTodo.appendChild(button)
+        } else {
+            let button = document.createElement('button')
+            button.innerText = '\xa0\xa0Edit\xa0\xa0'
+
+            button.style.cssText = 'position: absolute; right: 0; margin-left: 16px; background-color: rgb(192, 188, 189); color: black; border: 0; border-radius: 9999px; padding: 3px 8px; cursor: pointer;'
+
+            button.id = todo.id
+            button.onclick = editTodo
+            eachTodo.appendChild(button)
         }
 
         // Final output
@@ -143,6 +166,14 @@ function deleteTodo(event) {
     let buttonTag = event.target
     let buttonId = buttonTag.id
     removeTodo(buttonId)
+
+    render()
+}
+
+function editTodo(event) {
+    let buttonTag = event.target
+    let buttonId = buttonTag.id
+    rebuildTodo(buttonId)
 
     render()
 }
