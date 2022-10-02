@@ -25,11 +25,18 @@
 
         <div class="main">
             <div class="add-box">
-                <input class="task-input-box" id="todo-title" type="text" placeholder="Your task">
-                <input id="todo-date" type="date">
-                <button class="add-todo" onclick="addTodo()">
-                    Add todo
-                </button>
+                <div class="addboxTop">
+                    <input class="task-input-box" id="todo-title" type="text" placeholder="Your task">
+                    <input class="data-input-box" id="todo-date" type="date">
+                </div>
+                <div class="addboxBottom">
+                    <button class="add-todo" onclick="addTodo()">
+                        Add todo
+                    </button>
+                    <button class="addGC">
+                        Add in Google Calendar
+                    </button>
+                </div>
             </div>
             
             <nav class="tool-box" >

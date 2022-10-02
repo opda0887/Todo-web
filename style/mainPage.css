@@ -13,17 +13,31 @@
     align-items: center;
     justify-content: center;
     display: grid;
-    grid-template-rows: 50px 20px 1fr;
+    grid-template-rows: 80px 30px 1fr;
 }
 
 .add-box {
     display: flex;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
     align-items: top;
+}
+.addboxBottom {
+    display: grid;
+    grid-template-columns: 0.5fr 1fr;
+}
+.addboxTop {
+    display: flex;
+    align-items: top;
+    margin-bottom: 5px;
 }
 
 .task-input-box {
     height: 20px;
     margin-right: 5px;
+}
+.data-input-box {
+    height: 22px;
 }
 
 .add-todo {
@@ -32,6 +46,14 @@
     border: none;
     border-radius: 9999px;
     padding: 5px 8px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+.addGC {
+    background-color: rgb(60, 223, 60);
+    color: white;
+    border: none;
+    border-radius: 9999px;
     margin-left: 5px;
     cursor: pointer;
 }
