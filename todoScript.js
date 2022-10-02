@@ -219,10 +219,39 @@ function checkTask(outputTask) {
         console.log(str.replace(/\s/g, '#'));  // ##A#B##C###D#EF#
         console.log(str.replace(/\s+/g, '#')); // #A#B#C#D#EF#  
     */
-    let checkStr = outputTask.replace(/\s+/g, '');
+    let checkStr = outputTask.replace(/\s+/g, '')
     if (checkStr === '') {
         return 0
     }else {
         return 1
     }
+}
+
+// Google Calendar
+function addTodoGC() {
+    let outputTask = document.getElementById('todo-title').value
+    if (checkTask(outputTask) !== 0) {
+        let outputDate = document.getElementById('todo-date').value
+
+        let taskModify = outputTask.replace(/\s+/g, '+')
+        let dateModify = outputDate.replace(/\-+/g, '')
+
+        document.getElementById('todo-title').value = ''
+        document.getElementById('todo-date').value = ''
+
+        if (dateModify == '') {
+            let webLink = '"https://calendar.google.com/calendar/u/0/r/eventedit?text=' + taskModify + '"'
+            let linkModify = webLink.slice(1, -1);
+            window.open(linkModify);
+        }else {
+            let webLink = '"https://calendar.google.com/calendar/u/0/r/eventedit?text=' + taskModify + '&dates=' + dateModify + '/' + dateModify + '"'
+            let linkModify = webLink.slice(1, -1);
+            window.open(linkModify);
+        }
+
+    }else {
+        document.getElementById('todo-date').value = ''
+        alert("任務內容不能為空白\nYour task title can't be none.")
+    }
+    
 }
