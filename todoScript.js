@@ -129,9 +129,9 @@ function render() {
         }
 
         if (todo.isDone) {
-            element.style.cssText = 'text-align: center; text-align: left; display: inline-block; font-weight: bold; color: rgb(134, 0, 179); width: 215px; white-space: innitial;'
+            element.style.cssText = 'text-align: center; text-align: left; display: inline-block; font-weight: bold; color: rgb(134, 0, 179); width: 215px; overflow-wrap: break-word;'
         }else {
-            element.style.cssText = 'text-align: center; text-align: left; display: inline-block; font-weight: bold; width: 215px; white-space: innitial;'
+            element.style.cssText = 'text-align: center; text-align: left; display: inline-block; font-weight: bold; width: 215px; overflow-wrap: break-word;'
         }
 
         eachTodo.appendChild(element)
