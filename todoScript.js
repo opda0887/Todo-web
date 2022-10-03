@@ -129,9 +129,9 @@ function render() {
         }
 
         if (todo.isDone) {
-            element.style.cssText = 'text-align: center; display: inline-block; font-weight: bold; color: rgb(134, 0, 179)'
+            element.style.cssText = 'text-align: center; text-align: left; display: inline-block; font-weight: bold; color: rgb(134, 0, 179); width: 215px; white-space: innitial;'
         }else {
-            element.style.cssText = 'text-align: center; display: inline-block; font-weight: bold;'
+            element.style.cssText = 'text-align: center; text-align: left; display: inline-block; font-weight: bold; width: 215px; white-space: innitial;'
         }
 
         eachTodo.appendChild(element)
