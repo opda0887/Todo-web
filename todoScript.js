@@ -104,11 +104,12 @@ function render() {
     todo.forEach(function (todo) {
         // set div
         let eachTodo = document.createElement('div')
-        eachTodo.style.cssText = 'margin-bottom: 5px; position: relative; display: flex; align-items: center;'
+        eachTodo.style.cssText = 'margin-bottom: 6px; position: relative; display: flex; align-items: center;'
                     
         // create checkbox
         let checkbox = document.createElement('input')
         checkbox.setAttribute('type', 'checkbox')
+        checkbox.style.cssText = 'margin-right: 7px;'
         checkbox.id = todo.id
         checkbox.onchange = checkFinish
         if (todo.isDone) {
@@ -129,9 +130,9 @@ function render() {
         }
 
         if (todo.isDone) {
-            element.style.cssText = 'text-align: center; text-align: left; display: inline-block; font-weight: bold; color: rgb(134, 0, 179); width: 215px; overflow-wrap: break-word;'
+            element.style.cssText = 'text-align: center; text-align: left; display: inline-block; font-weight: bold; color: rgb(134, 0, 179); width: 211px; overflow-wrap: break-word;'
         }else {
-            element.style.cssText = 'text-align: center; text-align: left; display: inline-block; font-weight: bold; width: 215px; overflow-wrap: break-word;'
+            element.style.cssText = 'text-align: center; text-align: left; display: inline-block; font-weight: bold; width: 211px; overflow-wrap: break-word;'
         }
 
         eachTodo.appendChild(element)
