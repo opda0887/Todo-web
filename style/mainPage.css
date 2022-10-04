@@ -57,3 +57,30 @@
     margin-left: 5px;
     cursor: pointer;
 }
+
+/* */
+
+.githubBox {
+    position: relative;
+    margin-left: 5px;
+    padding-top: 50px;
+}
+.githubText {
+    position: absolute;
+    text-align: center;
+    padding: 5px 0;
+    width: 70px;
+    background-color: grey;
+    color: white;
+    font-size: 10px;
+    border-radius: 5px;
+    bottom: -12px;
+    right: -60px;
+    opacity: 0;
+    z-index: 100;
+    pointer-events: none;
+}
+.githubBox:hover .githubText {
+    opacity: 1;
+    transition: opacity 0.15s;
+}

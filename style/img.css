@@ -4,3 +4,7 @@
 .sortDate:hover {
     cursor: pointer;
 }
+
+.githubImg {
+    width: 30px;
+}
