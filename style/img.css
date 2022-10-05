@@ -6,5 +6,9 @@
 }
 
 .githubImg {
+    position: absolute;
+    bottom: -50px;
+    right: -35px;
     width: 30px;
+    cursor: pointer;
 }

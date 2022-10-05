@@ -62,8 +62,7 @@
 
 .githubBox {
     position: relative;
-    margin-left: 5px;
-    padding-top: 50px;
+    height: 30px;
 }
 .githubText {
     position: absolute;
@@ -74,8 +73,8 @@
     color: white;
     font-size: 10px;
     border-radius: 5px;
-    bottom: -12px;
-    right: -60px;
+    bottom: -60px;
+    right: -115px;
     opacity: 0;
     z-index: 100;
     pointer-events: none;
