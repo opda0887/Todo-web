@@ -12,3 +12,11 @@
     width: 30px;
     cursor: pointer;
 }
+
+.tutorialImg {
+    position: absolute;
+    bottom: -10px;
+    right: -35px;
+    width: 30px;
+    cursor: pointer;
+}

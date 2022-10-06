@@ -14,18 +14,26 @@
         <link rel="stylesheet" href="style/img.css">
         <link rel="stylesheet" href="style/nav.css">
         <link rel="shortcut icon" type="image/x-icon" href="https://i.imgur.com/eOudACf.png">
+
+        <script src="https://unpkg.com/vue@3.0.2"></script>
     </head>
     <body>
         
-        <div class="topic">
+        <div class="topic" id="topic">
             <p class="topic-text">
                 The Todos
             </p>
             
             <div class="githubBox">
-                <img class="githubImg" src="icon/github.png" href="https://github.com/opda0887">
+                <img class="githubImg" src="icon/github.png" @click="openLink(mygithub)" >
                 <p class="githubText">
                     my Gtihub
+                </p>
+            </div>
+            <div class="tutorialBox">
+                <img class="tutorialImg" src="icon/easy-to-use.png" @click="openLink(tutorial)">
+                <p class="tutorialText">
+                    how to use?
                 </p>
             </div>
 
@@ -63,5 +71,6 @@
         
 
         <script src="todoScript.js"></script>
+        <script src="imgClick.js"></script>
     </body>
 </html>
