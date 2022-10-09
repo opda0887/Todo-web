@@ -1,15 +1,15 @@
-const app = Vue.createApp({
-    data (){
+const app1 = Vue.createApp({
+    data() {
         return {
-            mygithub: 'https://github.com/opda0887',
-            tutorial: 'https://github.com/opda0887/Todo-web',
+            viewMenu: false,
         }
     },
+
     methods: {
-        openLink(link) {
-            window.location = link
+        openMenu() {
+            this.viewMenu = !this.viewMenu
         }
     }
 })
 
-app.mount('#topic')
+app1.mount('#menu')

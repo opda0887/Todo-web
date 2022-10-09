@@ -19,24 +19,41 @@
     </head>
     <body>
         
-        <div class="topic" id="topic">
+        <div class="menu" id="menu">
+            <div class="menu-box">
+                <img class="menu-button" src="icon/menu.jpg" @click="openMenu">
+                <div class="menu-options" v-if="viewMenu">
+                    <ul>
+                        <li>
+                            <p style="width: 130px;">
+                                change theme
+                            </p>
+                        </li>
+                        <li>
+                            <p class="menu-items">
+                                <a href="https://github.com/opda0887/Todo-web" class="tags">
+                                    how to use?
+                                </a>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="menu-items">
+                                <a href="https://github.com/opda0887" class="tags">
+                                    my Github
+                                </a>
+                            </p>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="topic">
             <p class="topic-text">
                 The Todos
             </p>
             
-            <div class="githubBox">
-                <img class="githubImg" src="icon/github.png" @click="openLink(mygithub)" >
-                <p class="githubText">
-                    my Gtihub
-                </p>
-            </div>
-            <div class="tutorialBox">
-                <img class="tutorialImg" src="icon/easy-to-use.png" @click="openLink(tutorial)">
-                <p class="tutorialText">
-                    how to use?
-                </p>
-            </div>
-
         </div>
 
         <div class="main">
