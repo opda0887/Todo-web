@@ -1,12 +1,12 @@
-# Todo-web  
-An online todo-list for everyone.  
+# Tutorial(使用教學)📝  
 
---- *** ---  
-How to use ?  
---- *** ---  
+🌐**url(連結)**：https://opda0887.github.io/Todo-web/
 
-1. Download all files into a folder.  
-     click the green button "Code" and click "Download zip"  
-2. Open a file named "index" then you can use.
+👀**預覽畫面(Preview)**：  
+![img](https://i.imgur.com/Gi6w1Gj.png)
+
+✔️**功能說明(Features)**:  
+
+
 
 If you have any feedbacks, just contact me (≧∀≦)
