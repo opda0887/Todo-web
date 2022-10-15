@@ -40,3 +40,15 @@
     color: rgb(156, 35, 35);
     transition: color 0.15s;
 }
+
+.themeText {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    width: 130px;
+    cursor: pointer;
+}
+.themeText:hover {
+    color: rgb(156, 35, 35);
+    transition: color 0.15s;
+}
